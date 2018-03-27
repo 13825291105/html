@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>回调函数</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    fn(test);
+
+    // 回调函数 函数作为参数进行传递和使用(灵活性  传什么方法进来就执行什么方法)
+    function fn(demo) {
+        demo();
+    }
+
+    function test() {
+        console.log('我是被测试的函数')
+    }
+
+
+    // 什么情况下 使用回调函数
+    // 一般用于定义一个规则来使用的
+    // 规则的传递只能通过函数实现   通过变量无法达成
+    // 所以我们需要传递规则的时候必须使用回调函数
+    // 
+
+    var sum = fn1(10,5,text1);
+    console.log(sum);
+    function fn1(num1, num2, demo) {
+        return demo(num1, num2);
+    }
+    // 定义四种规则 + - * / 
+    function text1(a, b) {
+        return a + b;
+    }
+
+    function text2(a, b) {
+		return a - b;
+    }
+
+    function text3(a, b) {
+    	return a * b;
+    }
+
+    function text4(a, b) {
+    	return a / b;
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>对象字面量</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = new Object();
+		console.log(obj);
+
+		// 对象的字面量就是一个{} 而里面的属性和方法
+		// 是以键值对形式表现的
+		var obj2 = {name:"张三","age":18,say:function () {
+			console.log(1);
+		}};
+		console.log(obj2);
+		obj2.say();
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>构造函数</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+
+		var stu1 = new Student("王五");
+		var stu2 = new Student("赵六");
+
+		console.log(stu1);
+		stu1.say();
+		console.log(typeof stu1);
+
+		console.log(stu2);
+		stu2.say();
+		console.log(typeof stu2);
+		//创建一个构造函数
+		function Student(name){
+			//构造函数中的对象是指this
+			this.name = name;
+			this.say = function () {
+				console.log(this.name+"说:大家好");	
+			}
+		} 
+
+	</script>
+	
+</body>
+</html>

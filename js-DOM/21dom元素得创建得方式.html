@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			aaa
+		</ul>
+		<script type="text/javascript">
+			//第一种创建方式 document.write
+			document.write("<li>我是document.write创建得li</li>");
+
+			//第二种直接利用元素得innerHTML属性
+			var ul = document.getElementsByTagName("ul")[0];
+			ul.innerHTML += "<li id='l1'>我是innerHTML创建得元素</li>";
+
+			//第三种利用dom得api来创建元素
+			var li = document.createElement("li");
+			console.log(li);
+			li.innerHTML = "我是create创建得元素 ";
+			//在父元素得得最后添加元素
+			ul.appendChild(li);
+			var l1 = document.getElementById("l1");
+			//在指定得位置添加元素 
+			ul.insertBefore(li, l1);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件的拓展</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+		.aaa {
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+
+	<div id = "box"></div>
+	<script type="text/javascript">
+		// 一共五种
+		// document.getElementsByTagName("div");
+		// document.getElementsByClassName("")
+		// document.getElementById();
+		// document.getElementsByName();
+		// document.getElementsByTagNameNS()
+		var ele = document.getElementById("box");
+
+		ele.onclick = function(){
+			// alert(1);
+			ele.style.width = "200px";
+			ele.style.height = "200px";
+			ele.className = "aaa";
+		}
+
+	</script>
+	
+</body>
+</html>

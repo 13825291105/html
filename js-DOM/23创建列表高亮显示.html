@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button>创建列表</button>
+		<ul>
+
+		</ul>
+
+		<script type="text/javascript">
+			var arr = ["昭君出塞", "西施浣纱", "贵妃醉酒", "貂蝉拜月"];
+			var botton = document.getElementsByTagName("button")[0];
+			var ul = document.getElementsByTagName("ul")[0];
+			botton.onclick = function() {
+				for(var i = 0; i < arr.length; i++) {
+					var li = document.createElement("li");
+					li.innerHTML = arr[i];
+					//添加到ul中
+					ul.append(li);
+				}
+				//获取所有的li标签然后为她绑定事件 排他思想 高亮显示
+				var liArr = ul.children;
+				//为所有的li绑定事件
+				for (var i = 0; i < liArr.length; i++) {
+					liArr[i].onmouseover = function  () {
+						//排他思想
+						for (var i = 0; i < liArr.length; i++) {
+							liArr[i].onmouseover = function  () {
+								for (var j = 0; j < liArr.length; j++) {
+									liArr[j].style.backgroundColor = "";
+								}
+								this.style.backgroundColor = "red";
+							} 
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选择水果</title>
+		<style type="text/css">
+			select {
+				width: 180px;
+				height: 240px;
+				background-color: #CC00FF;
+				font-size: 16px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<select name="" size="10" id="sle1" multiple>
+			<option value="">香蕉</option>
+			<option value="">苹果</option>
+			<option value="">鸭梨</option>
+			<option value="">榴莲</option>
+		</select>
+		<button>>>></button>
+		<button><<<</button>
+		<button>></button>
+		<button><</button>
+		
+		<select name="" size="10" id="sle2" multiple>
+			
+		</select>
+		<script type="text/javascript">
+			window.onload = function (){
+				//点击>>>左边的选项全部进入右边
+				//点击<<< 右边的选项全部进入左边
+				//思路  获取所有的子元素 然后直接添加到另一侧
+				var sle1 = document.getElementById("sle1");
+				var sel2 = document.getElementById("sel2");
+				var btn = document.getElementsByTagName("button");
+				//绑定事件
+				btn[0].onclick = function (){
+					//获取左侧的select标签的所有的子元素
+					var arr = sle1.children;
+					//遍历添加到右边 随着左侧标签内元素减少 数组的长度也会减少
+					for (var i = arr.length-1; i >= 0; i--) {
+						sle2.appendChild(arr[i]);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

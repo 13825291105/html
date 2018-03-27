@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件解绑的兼容性写法</title>
+</head>
+<body>
+    <button>赋诗</button>
+    <script>
+        var btn = document.getElementsByTagName("button")[0];
+
+        // btn.onclick = function () {
+        //     alert(1);
+        // }
+        //事件解绑 第一种解绑方法
+        //btn.onclick = null;
+
+        btn.addEventListener("click",fn);
+        function fn() {
+            alert(1);
+        }
+
+        //第二种
+        btn.removeEventListener("click",fn);
+
+
+    </script>
+</body>
+</html>

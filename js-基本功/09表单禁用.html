@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    账号:
+    <input type="text" name="" value="哈喽你好">
+    <button>禁用</button>
+    <button>解除禁用</button>
+    <br>
+    <br> 密码:
+    <input type="password" name="" value="123456">
+    <script>
+    //需求 禁用文本框
+    // 步骤
+    // 1.获取事件源和相关的元素 2.绑定事件 3.书写驱动程序
+    var input = document.getElementsByTagName("input")[0];
+    var botton = document.getElementsByTagName("button")[0];
+    var botton1 = document.getElementsByTagName("button")[1];
+    botton.onclick = function() {
+        input.disabled = true;
+    }
+    botton1.onclick = function() {
+        // input.disabled = false;
+        input.removeAttribute("disabled");
+    }
+    </script>
+</body>
+
+</html>

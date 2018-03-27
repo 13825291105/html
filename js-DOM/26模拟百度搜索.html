@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟百度搜索</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				
+			}
+			ul{
+				width: 392px;
+				padding: 5px;
+				list-style: none;
+				border: 1px solid red;
+			}
+			li{
+				line-height: 14px;
+			}
+			li:hover{
+				background-color: red;
+			}
+			.box{
+				width: 500px;
+				margin: 200px auto;
+			}
+			input {
+				width: 400px;
+				
+			}
+			button{
+				width: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="" name="" id="" value="" />
+			<button>搜索</button>
+			<!--<ul>
+				<li>aaa</li>
+				<li>bbb</li>
+				<li>ccc</li>
+			</ul>-->
+		</div>
+		<script type="text/javascript">
+			//需求 输入内容 (输入事件 键盘弹起事件) 模拟服务器获取内创建ul
+			//然后显示
+			
+			//获取事件源和相关元素
+			var arr = ["a","ab","abc","abcd","aa","aaaa"]
+			var box = document.getElementsByTagName("div")[0];
+//			var inp = document.getElementsByTagName("input")[0];
+			var inp = box.children[0]; 
+			//绑定事件(输入事件oninput 键盘弹起事件onkeyup)
+			inp.onkeyup = function (){
+				//创建一个字符串 里面添加li和对应的内容
+				//我要从数组中查询以输入的内容为开头的信息 然后添加在li中
+				var newArr = [];
+				//遍历老数组 然后判断每一项 哪项是以input内容开头的
+				for(var i=0;i<arr.length;i++){
+					//判断当前项是不是一input内容开头
+					//获取的输入的内容
+					
+					if(arr[i].indexOf(this.value)===0){
+						newArr.push("<li>"+arr[i]+"</li>")
+					}
+				}
+				
+				var str = newArr.join("");
+				
+				//bug1 每次创建新的ul之前  先删除旧的ul
+				//只有ul存在我们才能删除
+				//var aaa = box.getElementsByTagName("ul")[0];
+				
+				if(box.children[2]){
+					//只要ul存在 就删除
+					box.removeChild(box.children[2]);
+				}
+				//如果input内容为空 那么就不能在生成ul
+				//如果arr中没有以input开头的元素  那么切断函数
+				if(this.value.length ===0 || newArr.length===0){
+					//切断函数
+					return;
+				}
+				
+				
+				var ul = document.createElement("ul");
+				ul.innerHTML = str;
+				//添加box中
+				box.appendChild(ul);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器体验</title>
+</head>
+<body>
+<script>
+    //setInterval() setTimeout();
+    setInterval(function () {
+        var num = 0;
+        console.log(num);
+        num++;
+    },1000);
+
+    //setInterval()循环定时器
+    //setTimeout()  炸弹定时器
+
+    //定义方法1(匿名函数)
+    setInterval(function () {
+        var num = 0;
+        console.log(num);
+        num++;
+    },1000);
+    //定义方法2
+    setInterval(fn,1000);
+    function fn() {
+        console.log("定义方法2");
+    }
+
+</script>
+</body>
+</html>

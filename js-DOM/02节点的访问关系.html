@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <script type="text/javascript">
+
+    //节点的访问形式是以属性的形式存在的 
+    // 1.parentNode	父节点	 box1是box2的父节点
+    var box2 = document.getElementsByClassName("box2")[0];
+    console.log(box2.parentNode);
+
+    //2.nextElementSibling(IE不支持) 下一个兄弟节点;
+    console.log(box2.nextElementSibling)
+
+    //3.firstElementChild第一个子节点
+    console.log(box2.parentNode.firstElementChild);
+
+    //所有子节点 childNodes和children 都是获得子节点
+    //但是childNodes包含html节点,所有属性,文本节点
+    //children返回的是子元素的集合;
+    console.log(box2.parentNode.childNodes);
+    console.log(box2.parentNode.children);
+
+    //////////
+    //节点的操作 //
+    //////////
+    // 1.节点的创建
+    var aaa = document.createElement("li");
+
+    // 2.节点的添加
+    var box1ele = document.getElementsByClassName("box1")[0];
+    box1ele.append(aaa);
+
+    //删除
+    box1ele.removeChild(aaa);
+
+    //克隆
+    var ccc = box1ele.cloneNode();
+    var ccc1 = box1ele.cloneNode(true);
+    console.log(ccc);
+    console.log(ccc1);
+
+    </script>
+</body>
+
+</html>

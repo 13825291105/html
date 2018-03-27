@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>变量的声明提升和预解析</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		//预解析 js 的解析器 在页面加载的时候  首先检查页面上的语法错误
+		//然后变量的声明提升起来但是只提升变量名  不会进行赋值的操作
+		//而方法(用function直接定义的方法	是整体的提升  在方法的内部  变量提升也适用)
+		//函数的就近原则()
+		//1.查看语法错误
+		//2.变量声明提升(只提升变量名 不进行赋值操作)和函数整体提升
+		fn();
+		console.log(aaa);
+		var aaa;
+
+		function fn(){
+			console.log(1);
+		}
+	</script>
+	
+</body>
+</html>

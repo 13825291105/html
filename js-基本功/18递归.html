@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>递归</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		// 递归是一种思想:类似我们的计算器 开闭原则
+		// 递归的实质就是函数自己调自己
+		// 递归注意点 递归必须要有跳出的条件 不然死循环
+
+		// var i = 1;
+		
+		// fn();
+		
+		// function fn(){
+		// 	alert("从前有座山");
+		// 	i++;
+		// 	if (i>10) {
+		// 		return;
+		// 	}
+		// 	fn();
+		// }
+		// 
+		// 
+
+		//用递归求1-100的和
+		alert(getSum(100));
+		function getSum(n){
+			if (n<1) {
+				return 0;
+			}
+			return n + getSum(n-1);
+		}
+	</script>
+	
+</body>
+</html>

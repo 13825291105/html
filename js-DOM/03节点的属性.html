@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>节点的属性</title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript">
+		window.onload = function () {
+			var ele = document.getElementsByTagName("img")[0];
+			//属性的获取的两种方式
+			// 1.元素节点.属性或者元素节点[属性]
+			ele.src = "image/jd2.png";//赋值
+			console.log(ele.src);
+			console.log(ele.tagName);
+			console.log(ele["title"]);
+			console.log(ele["className"]);
+			console.log(ele["alt"]);
+			// 2.元素节点.方法();
+			console.log(ele.getAttribute("id"));
+			ele.setAttribute("id", "你好");
+
+			ele.removeAttribute("id");
+		}
+		
+	</script>
+</head>
+<body>
+	<img src="image/jd1.png" alt="京东狗" class="box" title="图片" id="aaa">
+	
+</body>
+</html>

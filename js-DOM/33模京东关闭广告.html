@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟京东关闭广告</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .site-nav {
+            height: 30px;
+            background-color: #cccccc;
+        }
+
+        .top-banner {
+            background-color: blue;
+        }
+
+        .w {
+            width: 1210px;
+            height: 80px;
+            background-color: pink;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search {
+            width: 1210px;
+            height: 80px;
+            background-color: red;
+            margin: 0 auto;
+        }
+
+        a {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+
+        }
+    </style>
+</head>
+<body>
+<div class="site-nav"></div>
+<div class="top-banner">
+    <div class="w" style="opacity: 1">
+        <a href="#">X</a>
+    </div>
+</div>
+<div class="search"></div>
+<script>
+    //点击关闭按钮  先让top-banner 的透明度变为0 然后display" none
+    // 1.获取事件源
+    // 2.绑定事件
+    //3.书写事件驱动程序 (定时器  透明度变为0  清楚定时器  并隐藏盒子)
+
+    // 1.获取事件源
+    var topBanner = document.getElementsByClassName("top-banner")[0];
+    var a = topBanner.children[0].firstElementChild || topBanner.children[0].firstChild;
+
+    var timer = null;
+    // 2.绑定事件
+    a.onclick = function () {
+        //3.书写事件驱动程序 (定时器  透明度变为0  清楚定时器  并隐藏盒子)
+            timer = setInterval(function () {
+            topBanner.style.opacity -= 0.01;
+            if ( topBanner.style.opacity < 0 ){
+                topBanner.style.display = "none";
+                clearInterval(timer);
+            }
+        },1000);
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

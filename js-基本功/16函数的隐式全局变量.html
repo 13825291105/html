@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>隐式全局变量</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		function fn(){
+			//b和c都是隐式全局变量
+			var a = b = c = 1; 
+			//e f都是隐式全局变量 
+			var d = 1; e = 2;f = 3;
+			// g h i都不是隐式全局变量
+			var g = 1,h = 2, i = 3;
+		}	
+		fn();
+		// console.log(a);
+		console.log(b);
+		console.log(c);
+		console.log(e);
+		console.log(f);
+		// console.log(d);
+		// console.log(g);
+		// console.log(h);
+		// console.log(i);
+
+
+
+	</script>
+	
+</body>
+</html>

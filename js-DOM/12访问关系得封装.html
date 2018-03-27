@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>访问关系得封装</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		li {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			margin: 5px;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+
+	<ul>
+		<li></li>
+		<li></li>
+		<li id="box"></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+<script src="tools.js"></script>	
+
+
+<script>
+	//获取box改为red
+	var box = getEle("box");
+	console.log(box)
+	box.style.backgroundColor ="red";
+
+
+	//获取第一个和最后一个子节点
+	var parentNode = box.parentNode;
+	getFirstNode(parentNode).style.backgroundColor = "yellow";
+	getLastNode(parentNode).style.backgroundColor = "yellow";
+
+	//获取上一个和下一个兄弟节点
+	getNextNode(box).style.backgroundColor = "blue";
+ 	getPreviosNode(box).style.backgroundColor = "blue";
+
+ 	//获取指定兄弟节点
+ 	getEleOfIndex(box,0).style.backgroundColor = "green";
+ 	getEleOfIndex(box,1).style.backgroundColor = "green";
+
+ 	//获取所有得兄弟节点
+ 		var arr = getAllSiblingNodes(box);
+ 		for (var i = 0; i < arr.length; i++) {
+ 			arr[i].style.backgroundColor = "black";
+ 		}
+</script>
+
+
+
+
+	<!-- <script type="text/javascript">
+		// //访问父节点
+		// div.parentNode;
+
+		// //访问兄弟节点
+		// previousSibling;
+		// previousElementSibling;
+		// nextSibling;
+		// nextElementSibling;
+
+		// //访问单个节点
+		// firstChild;
+		// firstElementChild;
+		// lastChild;
+		// lastElementChild;
+
+		// //获取所有得子节点
+		// children;
+		// childNodes;
+
+		// //获取指定得兄弟得节点
+		// parentNode.children[index];
+
+		// //获取所有得兄弟节点
+		// function fn(ele){
+		// 	var newArr = [];//定义一个数组 装所有得兄弟节点
+		// 	var arr = ele.parentNode.children;
+		// 	for (var i = 0; i < arr.length; i++) {
+		// 		//如果不是传递过来得元素本身
+		// 		if(arr[i]!==ele){
+		// 			newArr.push(arr[i]);
+		// 		}
+		// 	}
+
+		// 	return newArr;
+		// }
+
+
+	</script> -->
+	
+</body>
+</html>

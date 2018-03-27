@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style属性</title>
+    <style>
+        div {
+            border: 10px solid #000000;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="box" style="width: 100px;height: 100px; border: 10px solid #000000;background-color:pink;">我爱你中国</div>
+<script>
+
+    var div = document.getElementsByTagName("div")[0];
+    console.log(div.style.width);
+    console.log(div.style.border);//只能获取行内的样式的值 内嵌 外联获取不到
+    console.log(div.style);
+    console.log(typeof div.style);//object
+    console.log( div.style.cssText);//行内样式的内容 字符串形式
+
+
+
+</script>
+</body>
+</html>

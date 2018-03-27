@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js事件</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		//体验事件
+		// 需求  点击盒子弹出对话框
+
+		// 步骤
+		// 1.获取事件源 2.绑定事件 3.书写事件驱动程序
+		var ele = document.getElementById("box");
+		ele.onclick = function (){
+			alert("哈哈")
+		};
+
+	</script>
+	
+</body>
+</html>

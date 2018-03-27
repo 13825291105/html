@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>面向对象</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<script type="text/javascript">
+	var hero = new Object();
+	// 自定义属性
+	hero.money = 10000;
+	hero.level = 6;
+
+	// 定义方法(行为)
+	hero.attack = function(){
+		console.log("攻击了水晶");
+	}
+
+	console.log(hero.money);
+	console.log(hero.level);
+	hero.attack();
+
+
+	//需求 创建单个自定对象
+	var student = new Object();
+	// console.log(student);
+	student.name = "张三";
+	student.age = 18;
+	student.address = "广东省深圳市";
+	student.say = function () {
+		console.log(this.name+"说:大家好");
+	}
+	console.log(student.name);
+	student.say();
+
+	var stu1 = createStudent("李四");
+	console.log(stu1);
+	stu1.say();
+	
+	var stu2 = createStudent("王五");
+	console.log(stu2);
+	stu2.say();
+
+	//创建一个函数
+	function createStudent(name){
+		var student1 = new Object();
+		student1.name = name;
+		student1.say = function (){
+			console.log(this.name+"说:大家好1");
+		}
+		return student1;
+	}
+
+
+
+
+</script>	
+</body>
+</html>

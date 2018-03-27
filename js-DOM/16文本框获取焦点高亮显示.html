@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<button>设置</button>
+<script>
+    //需求 点击设置按钮 让所有的input标签获取焦点后 高亮
+    var inputArr = document.getElementsByTagName("input");
+    var button = inputArr[inputArr.length-1].nextElementSibling || inputArr[inputArr.length-1].nextSibling;
+    button.onclick = function () {
+            for (var i = 0; i < inputArr.length;i++){
+                //当button按钮被点击后 所有的input标签被绑定事件 onfocus事件
+                inputArr[i].onfocus = function () {
+                    this.style.border = "3px solid red";
+                    this.style.backgroundColor = "#ccc";
+                }
+            }
+
+    }
+
+</script>
+</body>
+</html>

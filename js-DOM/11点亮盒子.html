@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>点亮盒子</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    button {
+        margin: 10px;
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .current {
+        background-color: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script type="text/javascript">
+    //需求 鼠标放到哪个button上面 改变button的背景颜色
+    var btn = document.getElementsByTagName("button");
+    for (var i = 0; i < btn.length; i++) {
+        //每次循环绑定一个属性 属性值为该盒子的索引值
+        btn[i].setAttribute("index",i); 
+        btn[i].onmouseover = function() {
+            //排他思想 (干掉所有人 剩下我一个)
+            for (var j = 0; j < btn.length; j++) {
+                btn[j].className = "";
+            }
+            this.className = "current";
+            alert(this.getAttribute("index"));
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>属性的操作</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div id="box" title="主题" class="aaa">
+		我爱你中国
+	</div>
+
+	<script type="text/javascript">
+		// 这两种方式不能交换使用  赋值 获取值 必须使用同一种方法(相互之间无法访问)
+		//元素节点.属性 (元素节点[属性])绑定的属性值 不会在出现下标签上面
+		var div = document.getElementById("box");
+		div.aaa = "11111";//获取没问题 能打印到控制台  但是不在出现在标签中(页面中)
+		console.log(div.aaa);
+
+		//get/set/removeAttibut绑定的属性会出现在标签上面
+		div.setAttribute("bbbb","2222");//会出现在页面上面
+
+
+		
+	</script>
+</body>
+</html>
