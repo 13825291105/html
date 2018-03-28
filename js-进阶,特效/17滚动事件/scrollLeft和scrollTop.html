@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+       body {
+           height: 5000px;
+           width: 5000px;
+       }
+    </style>
 </head>
 <body>
+<script>
+
+    window.onscroll = function () {
+        // console.log(document.body.scrollTop);
+        //document.body.scrollTop网页被卷去的头部
+        document.title = document.body.scrollTop + "    " +document.body.scrollLeft;
+    }
+</script>
 
 </body>
 </html>
