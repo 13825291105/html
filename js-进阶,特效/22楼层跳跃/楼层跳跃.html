@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层跳跃</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+            height: 100%;
+        }
+
+        ul li {
+            height: 100%;
+        }
+
+        ol {
+            list-style: none;
+            position: fixed;
+            top: 80px;
+            left: 50px;
+        }
+
+        ol li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 50px;
+            margin-top: -1px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>袜子区域</li>
+    <li>鞋子区域</li>
+    <li>裤子区域</li>
+    <li>裙子区域</li>
+    <li>帽子区域</li>
+</ul>
+<ol>
+    <li>袜子</li>
+    <li>鞋子</li>
+    <li>裤子</li>
+    <li>裙子</li>
+    <li>帽子</li>
+</ol>
+<script src="animate.js"></script>
+<script>
+    //需求 点击ol中的li屏幕滑动对应的范围
+    //思路 利用window.scrollTo(); 利用缓动动画原理实现屏幕的滑动\
+    //1.指定ul和ol中的li的背景色然后 对应的li的背景相同
+    //获取元素帮定事件
+    //缓动动画  实现屏幕的滑动
+    //获取scroll事件获取盒子距离最顶端的距离.
+
+    var ul = document.getElementsByTagName("ul")[0];
+    var ol = document.getElementsByTagName("ol")[0];
+    var ulLiArr = ul.children;
+    var olLiArr = ol.children;
+    var target = 0;
+    var leader = 0;
+    var timer = null;
+
+    var arrColor = ["pink", "blue", "yellow", "orange", "green"];
+
+    for (var i = 0; i < arrColor.length; i++) {
+        //上色
+        ulLiArr[i].style.backgroundColor = arrColor[i];
+        olLiArr[i].style.backgroundColor = arrColor[i];
+
+        //绑定事件  绑定索引值
+        olLiArr[i].index = i;
+        olLiArr[i].onclick = function () {
+            //获取目标位置
+            //获取索引值
+            target = ulLiArr[this.index].offsetTop;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                //缓动 原理实现滑动
+                //获取步长
+                var step = (target - leader) / 10;
+                //二次处理步长
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                //屏幕滑动
+                leader = leader + step
+                window.scrollTo(0, leader);
+                //清楚定时器
+                if (Math.abs(leader - target) <= Math.abs(step)) {
+                    window.scrollTo(0, leader);
+                    alert(1);
+                    clearInterval(timer);
+                }
+            }, 30)
+        }
+    }
+    window.onscroll = function () {
+        //每次屏幕滑动  把屏幕卷去的高度赋值给leader
+        leader = scroll().top;
+    }
+
+
+</script>
+</body>
+</html>
