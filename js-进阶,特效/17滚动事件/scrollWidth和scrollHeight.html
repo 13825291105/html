@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        人生自古谁无死,留取丹青照汗青
+
+    </div>
+
+    <script>
+        var div = document.getElementsByTagName("div")[0];
+
+        //scrollWidth和scrollHeight 不包括border
+        //scrollWidth = width + padding(不包括border和margin)
+         console.log(div.scrollWidth);
+        //高度有一个特点  如果文字超出盒子 那么 高度为超出来的文字的高度
+        //不超出  就么就是盒子的高度
+        //IE8 以下  不包括IE8 为盒子本身内容的高度
+         console.log(div.scrollHeight);
+    </script>
+</body>
+</html>
