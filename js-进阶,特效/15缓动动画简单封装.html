@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        position: absolute;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <button>运动到200</button>
+    <button>运动到400</button>
+    <div></div>
+    <script>
+    var　 btn = document.getElementsByTagName("button")[0];
+    var　 div = document.getElementsByTagName("div")[0];
+
+
+    // btn.onclick = function () {
+    //   setInterval(function (argument) {
+    //   	 //缓动  如何实现缓动呢  补偿越来越小
+    //    //步长用目标位置和盒子的自身位置的十分之一
+    //    var target = 400;
+    //    var step = (target - div.offsetLeft) / 10 ; 
+    //    div.style.left = div.offsetLeft + step + "px";
+    //   },30)
+    // }
+
+
+    //不足  定时器不会停下来
+    // btn.onclick = function() {
+    //     setInterval(function() {
+    //         div.style.left = div.offsetLeft + (400 - div.offsetLeft) / 10 + "px";
+    //     }, 30)
+    // }
+
+    var timer = null;
+
+    //简单封装   
+    btn.onclick = function() {
+        //要用定时器先清除定时器
+        clearInterval(timer);
+        timer = setInterval(function() {
+            //缓动  如何实现缓动呢  补偿越来越小
+            //步长用目标位置和盒子的自身位置的十分之一
+            //最后10像素的时候都是1像素1像素的向目标位置移动  就能到达指定目标
+            var step = (400 - div.offsetLeft) / 10;
+            step = Math.ceil(step); //向上取整
+            div.style.left = div.offsetLeft + step + "px";
+            // 跳出条件 目标位置 - 当前位置的绝对值  小于步长
+            if (Math.abs(400 - div.offsetLeft) < Math.abs(step)) {
+                div.style.left = 400 +"px";
+                clearInterval(timer)
+            }
+
+        }, 30)
+    }
+    </script>
+</body>
+
+</html>

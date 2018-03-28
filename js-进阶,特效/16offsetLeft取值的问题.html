@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div style="position: absolute;left: 396.5px"></div>
+
+	<script type="text/javascript">
+		var div = document.getElementsByTagName("div")[0];
+		console.log(div.style.left);//396.4
+		console.log(div.offsetLeft);//397 注意四舍五入的问题
+
+	</script>
+
+</body>
+</html>
